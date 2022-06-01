@@ -1,0 +1,8 @@
+﻿namespace Games_Storage.Core.Services.Dtos
+{
+    public class GenreDto
+    {
+        public byte Id { get; set; }
+        public string Name { get; set; } = null!;
+    }
+}
