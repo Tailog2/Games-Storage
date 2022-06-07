@@ -24,11 +24,6 @@ namespace Games_Storage.Persistence.Repositories
                 .Select(gg => gg.Game);          
         }
 
-        public Genre GetGenre(byte genreId)
-        {
-            return SqlDatabaseContext.Set<Genre>().Find(genreId);
-        }
-
         public override void Update(Game game)
         {
             UpdateGamesGenres(game);

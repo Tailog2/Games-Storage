@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Games_Storage.Services.SqlService.ApplicationDbContext.FluentApiConfig
+namespace Games_Storage.Persistence.EntityConfig
 {
     public class StudioEntityTypeConfig : IEntityTypeConfiguration<Studio>
     {

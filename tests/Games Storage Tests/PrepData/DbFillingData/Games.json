@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Game 1",
+    "studioId": 1,
+    "gamesGenres": [
+      {
+        "genresId": 1
+      },
+      {
+        "genresId": 2
+      }
+    ]
+  },
+  {
+    "name": "Game 2",
+    "studioId": 2,
+    "gamesGenres": [
+      {
+        "genresId": 3
+      },
+      {
+        "genresId": 4
+      }
+    ]
+  },
+  {
+    "name": "Game 3",
+    "studioId": 2,
+    "gamesGenres": [
+      {
+        "genresId": 1
+      },
+      {
+        "genresId": 2
+      },
+      {
+        "genresId": 3
+      },
+      {
+        "genresId": 4
+      }
+    ]
+  }
+]

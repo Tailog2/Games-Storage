@@ -16,12 +16,12 @@ namespace Games_Storage.Core.Services.Validators
             if (value is null)
                 return new ValidationResult(ErrorMessage);
 
-            var list = value as IEnumerable<object>;
+            IList list = (IList)value;
 
             if (list is null)
                 return new ValidationResult(ErrorMessage);
 
-            return list.Any() ? ValidationResult.Success : new ValidationResult(ErrorMessage);
+            return list.Count !=0 ? ValidationResult.Success : new ValidationResult(ErrorMessage);
         }
     }
 }

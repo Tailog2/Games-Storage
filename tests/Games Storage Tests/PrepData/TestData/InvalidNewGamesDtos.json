@@ -1,0 +1,31 @@
+[
+  {
+    "name": "   ",
+    "studioId": 1,
+    "genresIds": [
+      1,
+      2
+    ]
+  },
+
+  {
+    "name": "New Game 1",
+    "studioId": null,
+    "genresIds": 
+    [
+    ]
+  },
+  {
+    "name": "New Game 3",
+    "studioId": 2,
+    "genresIds": null
+  },
+  {
+    "name": null,
+    "studioId": 1,
+    "genresIds": [
+      1,
+      2
+    ]
+  }
+]

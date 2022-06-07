@@ -1,5 +1,4 @@
-﻿using Games_Storage.Services.SqlService.ApplicationDbContext.FluentApiConfig;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Games_Storage.Core.Models;
 using Games_Storage.Persistence.EntityConfig;
 

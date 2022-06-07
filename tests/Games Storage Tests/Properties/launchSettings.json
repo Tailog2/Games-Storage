@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Games Storage Tests": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}

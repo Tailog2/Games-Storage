@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Games";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Games</h1>
+@*    @Html.ActionLink("New Game",	"New",	"Games", null, new {@class = "btn btn-primary"})*@
+    <table  id="gamesTable" class="table">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Genre</td>
+                <td>Studio</td>
+            </tr>
+        </thead>
+        <tbody id="gamesTableBody">
+        </tbody>
+    </table>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script defer language="javascript" type="text/javascript">
+
+    const gamesUrl = "https://localhost:7152/api/Games";
+
+    $(document).ready(async function() {
+        let games = await loadData();      
+        games.forEach(addRow);      
+    });
+
+    async function loadData()
+    {
+        const response = await fetch(gamesUrl);
+        const data = await response.json();
+        return data;
+    };
+
+    function addRow (game){
+        var name = game.name;     
+        var studioName = game.studio.name;
+        var genres = game.genres;
+        var genresNames = genres.map(genre => genre.name );
+
+        $("#gamesTableBody").append("<tr><td>"+ name +"</td><td>"+ genresNames +"</td><td>"+ studioName +"</td></tr>");
+    };
+
+</script>

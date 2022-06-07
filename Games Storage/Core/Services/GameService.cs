@@ -37,12 +37,10 @@ namespace Games_Storage.Core.Services
             }
 
             game.Studio = _unitOfWork.Studios.Get(game.StudioId);
-
             foreach (var gg in game.GamesGenres)
             {
-                gg.Genre = _unitOfWork.Games.GetGenre(gg.GenresId);
+                gg.Genre = _unitOfWork.Genres.Get(gg.GenresId);
             }
-
             return _mapper.Map<Game, GameDto>(game);
         }
 
@@ -87,7 +85,7 @@ namespace Games_Storage.Core.Services
 
         public IEnumerable<GameDto> GetGamesByGenre(byte genreId)
         {
-            var gener = _unitOfWork.Games.GetGenre(genreId);
+            var gener = _unitOfWork.Genres.Get(genreId);
             if (gener == null)
             {
                 throw new NotFoundException();

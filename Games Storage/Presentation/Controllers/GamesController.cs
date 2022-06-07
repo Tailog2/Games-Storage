@@ -31,7 +31,6 @@ namespace Games_Storage.Presentation.Controllers
 
         // GET: api/GamesByGenre/
         [HttpGet("Genre/{id}")]
-   
         public ActionResult<IEnumerable<GameDto>> GetGamesByGenre(byte id)
         {
             return new ActionResult<IEnumerable<GameDto>>(_gameService.GetGamesByGenre(id));

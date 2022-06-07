@@ -6,6 +6,7 @@ namespace Games_Storage.Core
     {
         IGameRepository Games { get;  }
         IStudioRepository Studios { get; }
+        IGenreRepository Genres { get;  }
         int Complete();
     }
 }

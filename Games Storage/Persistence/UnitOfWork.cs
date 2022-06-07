@@ -13,10 +13,12 @@ namespace Games_Storage.Persistence
             _context = context;
             Games = new GameRepository(_context);
             Studios = new StudioRepository(_context);
+            Genres = new GenreRepository(_context);
         }
 
         public IGameRepository Games { get; init; }
         public IStudioRepository Studios { get; init; }
+        public IGenreRepository Genres { get; set; }
 
         public int Complete()
         {

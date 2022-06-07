@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Genres";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Genres</h1>
+    <button data-id="1" class="genreButton btn-primary">Strategies</button>
+    <button data-id="2" class="genreButton btn-primary">RPG</button>
+    <button data-id="3" class="genreButton btn-primary">Quests</button>
+    <button data-id="4" class="genreButton btn-primary">Arcades</button>
+
+    <h1 class="display-4">Games</h1>
+    <table id="gamesTable" class="table">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Genre</td>
+                <td>Studio</td>
+            </tr>
+        </thead>
+        <tbody id="gamesTableBody">
+        </tbody>
+    </table>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script language="javascript" type="text/javascript">  
+
+    $(document).ready(async function() {
+
+        var gamesUrl = "https://localhost:7152/api/Games";
+        var games = await loadData(gamesUrl);      
+        games.forEach(addRow);      
+
+        $(".genreButton").on("click", async function() {
+            var genreId = $(event.target).data("id");
+            gamesUrl = "https://localhost:7152/api/Games/Genre/" + genreId;
+            games = await loadData(gamesUrl);
+            $("#gamesTable > tbody").empty();
+            games.forEach(addRow);
+        });          
+    });
+
+
+    async function loadData(url)
+    {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+    };
+
+    function addRow (game){
+        var name = game.name;     
+        var studioName = game.studio.name;
+        var genres = game.genres;
+        var genresNames = genres.map(genre => genre.name );
+
+        $("#gamesTableBody").append("<tr><td>"+ name +"</td><td>"+ genresNames +"</td><td>"+ studioName +"</td></tr>");
+    };
+
+</script>
