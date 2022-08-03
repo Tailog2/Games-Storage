@@ -45,6 +45,9 @@ builder.Services.AddTransient<IGameService, GameService>();
 builder.Services.AddTransient<IStudioService, StudioService>();
 builder.Services.AddTransient< IGenreService, GenreService>();
 
+// Logging
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 
 var app = builder.Build();
 
