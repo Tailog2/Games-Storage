@@ -7,10 +7,12 @@ namespace Games_Storage.Presentation.ExceptionHendler
     internal class ExceptionHandler
     {
         private readonly RequestDelegate _next;
+        private readonly ILogger<ExceptionHandler> _logger;
 
-        public ExceptionHandler(RequestDelegate next)
+        public ExceptionHandler(RequestDelegate next, ILogger<ExceptionHandler> logger)
         {
             _next = next;
+            _logger = logger;
         }
 
         public async Task Invoke(HttpContext context)
@@ -24,7 +26,8 @@ namespace Games_Storage.Presentation.ExceptionHendler
                 var response = context.Response;
                 response.ContentType = "application/json";
 
-                var statusCode = StatusCodes.Status500InternalServerError;              
+                var statusCode = StatusCodes.Status500InternalServerError;
+                _logger.LogError(error.HResult, error, "An error has occurred");
 
                 switch (error)
                 {
